@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Multi-Counter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Daily Counter</h1>
+            <p>Track multiple things daily - Auto-reset at midnight</p>
+        </header>
+
+        <div class="main">
+            <div class="create-box">
+                <input type="text" id="nameInput" placeholder="What to count? (e.g., Coffee cups)">
+                <button id="addBtn">+ Add Counter</button>
+            </div>
+
+            <div class="counters" id="countersGrid">
+                <div class="empty">No counters yet. Add one above!</div>
+            </div>
+
+            <div class="history">
+                <h2>📅 History</h2>
+                <div class="filters">
+                    <select id="dateFilter">
+                        <option value="all">All Dates</option>
+                    </select>
+                    <select id="counterFilter">
+                        <option value="all">All Counters</option>
+                    </select>
+                </div>
+                <div class="history-list" id="historyList">
+                    <div class="empty">No history yet</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

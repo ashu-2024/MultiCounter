@@ -1,0 +1,368 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #C9CDCF; /* Light gray from palette */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+header {
+    background: linear-gradient(135deg, #E4004B 0%, #ED775A 100%); /* Red to Orange gradient */
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+header p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.main {
+    padding: 30px;
+}
+
+/* Create Counter Section */
+.create-box {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    background: #FAD691; /* Yellow from palette */
+    padding: 20px;
+    border-radius: 12px;
+    align-items: center;
+    border: 2px solid #E4004B; /* Red border */
+}
+
+#nameInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #C9CDCF; /* Light gray border */
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    transition: all 0.3s;
+}
+
+#nameInput:focus {
+    border-color: #E4004B; /* Red on focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(228, 0, 75, 0.1);
+}
+
+#addBtn {
+    background: #E4004B; /* Red */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+#addBtn:hover {
+    background: #c70043;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(228, 0, 75, 0.3);
+}
+
+/* Counters Grid */
+.counters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+    min-height: 100px;
+}
+
+.empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #666;
+    padding: 50px 20px;
+    font-style: italic;
+    background: #FAD691; /* Yellow */
+    border-radius: 12px;
+    border: 2px dashed #ED775A; /* Orange */
+}
+
+/* Counter Card */
+.counter-card {
+    background: white;
+    border: 3px solid #ED775A; /* Orange border */
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 6px 20px rgba(237, 119, 90, 0.15);
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.counter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #E4004B, #ED775A); /* Red to Orange */
+}
+
+.counter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.counter-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    padding-right: 10px;
+}
+
+.delete-btn {
+    background: #E4004B; /* Red */
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.delete-btn:hover {
+    background: #c70043;
+    transform: scale(1.1);
+}
+
+.count-display {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #E4004B; /* Red */
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.controls button {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.minus-btn {
+    background: #ED775A; /* Orange */
+    color: white;
+}
+
+.minus-btn:hover {
+    background: #e06847;
+}
+
+.plus-btn {
+    background: #FAD691; /* Yellow */
+    color: #333;
+}
+
+.plus-btn:hover {
+    background: #f7cd7e;
+}
+
+.reset-btn {
+    background: #C9CDCF; /* Light gray */
+    color: #333;
+    padding: 14px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.reset-btn:hover {
+    background: #b9bdc0;
+    transform: translateY(-2px);
+}
+
+.timestamps {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 2px solid #FAD691; /* Yellow */
+    padding-top: 15px;
+}
+
+.timestamps div {
+    padding: 6px 0;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+}
+
+.timestamps div:last-child {
+    border-bottom: none;
+}
+
+/* History Section */
+.history {
+    background: #FAD691; /* Yellow */
+    padding: 25px;
+    border-radius: 15px;
+    border: 3px solid #ED775A; /* Orange */
+}
+
+.history h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.filters select {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #C9CDCF; /* Light gray */
+    border-radius: 10px;
+    background: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.filters select:focus {
+    border-color: #E4004B; /* Red */
+    outline: none;
+}
+
+.history-list {
+    max-height: 350px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid #C9CDCF; /* Light gray */
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 2px solid #FAD691; /* Yellow */
+    background: #f8f9fa;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.history-item:hover {
+    transform: translateX(5px);
+    background: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.history-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .counters {
+        grid-template-columns: 1fr;
+    }
+    
+    .create-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #addBtn {
+        width: 100%;
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .count-display {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        padding: 20px;
+    }
+    
+    .counter-card {
+        padding: 20px;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    .count-display {
+        font-size: 3rem;
+    }
+}
